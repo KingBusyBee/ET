@@ -266,6 +266,7 @@ class ETWindow:
         self.et.save_state()
         self.et.memory.save()
         self.et.word_store.save()
+        self.et.hippocampus.save(self.et.hippocampus_path)
         try:
             self.root.destroy()
         except:

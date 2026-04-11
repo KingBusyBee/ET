@@ -19,7 +19,7 @@ class AutonomicLayer:
             "fatigue": 0.0,
             "temperature": 0.0,
         }
-        self.drift_rate = 0.002
+        self.drift_rate = 0.00008
         self.decay_rate = 0.001
         self.warning_threshold = 0.75
         self.rebound_factor = 0.15

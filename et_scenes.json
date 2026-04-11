@@ -1,0 +1,139 @@
+{
+  "tick_count": 420,
+  "timestamp": "2026-04-11T17:49:51.036845",
+  "scene_count": 12,
+  "scenes": [
+    {
+      "id": 0,
+      "tick": 30417,
+      "context": "Once upon a time, there was a whale named Swimmer",
+      "valence": 0.9999980219449137,
+      "arousal": 0.05398231984934297,
+      "attention": 0.0,
+      "activation": 0.9764560119992608,
+      "reactivations": 0,
+      "last_active": 30417
+    },
+    {
+      "id": 1,
+      "tick": 30460,
+      "context": "Hey ET!",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9977140000000048,
+      "reactivations": 31,
+      "last_active": 293
+    },
+    {
+      "id": 2,
+      "tick": 30493,
+      "context": "Swimmer liked swimming in the ocean",
+      "valence": 0.9999999581682377,
+      "arousal": 0.99861206,
+      "attention": 0.0,
+      "activation": 0.9977139999362453,
+      "reactivations": 31,
+      "last_active": 293
+    },
+    {
+      "id": 3,
+      "tick": 30503,
+      "context": "What's going on?",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9977140000000048,
+      "reactivations": 31,
+      "last_active": 293
+    },
+    {
+      "id": 4,
+      "tick": 30568,
+      "context": "Swimmer was very curious",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9977140000000048,
+      "reactivations": 22,
+      "last_active": 293
+    },
+    {
+      "id": 5,
+      "tick": 30588,
+      "context": "Oh it's the Swimmer story again.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9977140000000048,
+      "reactivations": 22,
+      "last_active": 293
+    },
+    {
+      "id": 6,
+      "tick": 30643,
+      "context": "Swimmer had a curiosity high that made him want to explore everything",
+      "valence": 0.9999983210145174,
+      "arousal": -0.05074149377126987,
+      "attention": 0.0,
+      "activation": 0.9805243171259831,
+      "reactivations": 0,
+      "last_active": 30643
+    },
+    {
+      "id": 7,
+      "tick": 30699,
+      "context": "Are you excited?",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9977140000000048,
+      "reactivations": 8,
+      "last_active": 293
+    },
+    {
+      "id": 8,
+      "tick": 30719,
+      "context": "Explore means to go everywhere, to see everything",
+      "valence": 0.9999999245837946,
+      "arousal": 0.9969351502836404,
+      "attention": 0.0,
+      "activation": 0.9818939244779077,
+      "reactivations": 0,
+      "last_active": 30719
+    },
+    {
+      "id": 9,
+      "tick": 30724,
+      "context": "O.o",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9819840000000042,
+      "reactivations": 0,
+      "last_active": 30724
+    },
+    {
+      "id": 10,
+      "tick": 30771,
+      "context": "Sleepy time!",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9828300000000024,
+      "reactivations": 0,
+      "last_active": 30771
+    },
+    {
+      "id": 11,
+      "tick": 30794,
+      "context": "Swimmer explored his whole ocean until he learned all of it",
+      "valence": 0.9999992416061879,
+      "arousal": 0.8088845624849766,
+      "attention": 0.0,
+      "activation": 0.9872432412239592,
+      "reactivations": 0,
+      "last_active": 30794
+    }
+  ]
+}

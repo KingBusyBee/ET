@@ -11,6 +11,7 @@ from memory import MemorySystem
 from word_store import WordStore
 from sleep import SleepSystem
 from voice import VoiceSystem
+from hippocampus import Hippocampus
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -24,6 +25,9 @@ class ETCore:
         self.word_store = WordStore()
         self.sleep_system = SleepSystem()
         self.voice = VoiceSystem()
+        self.hippocampus = Hippocampus(context_size=4, hidden_size=8)
+        self.hippocampus_path = os.path.join(os.path.dirname(__file__), "../et_hippocampus.json")
+        self.hippocampus.load(self.hippocampus_path)
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
@@ -209,6 +213,17 @@ class ETCore:
                 current_signals=current_signals,
                 attention=cortical_state.get("attention", 0.0)
             )
+
+            # Hippocampus — rolling context, RNN forward pass, Hebbian learning
+            surprise, prediction = self.hippocampus.encode(
+                current_signals,
+                scene_text=""
+            )
+            # Hippocampal surprise feeds back into cortical
+            if surprise > 0.3:
+                self.cortical.left["surprise"] = self.cortical._clamp(
+                    self.cortical.left["surprise"] + surprise * 0.1
+                )
 
             # Voice — ET speaks when signal pressure is high enough
             combined_signals = {
