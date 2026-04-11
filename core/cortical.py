@@ -232,6 +232,58 @@ class CorticalLayer:
         integrated = integrated * (1.0 - self.cc_signal["conflict"] * 0.3)
         return self._clamp(integrated)
 
+
+    def get_attention(self):
+        # Attention emerges from surprise, confidence, and conflict
+        # Not a command — a readable state other loops can notice
+        # High surprise + low conflict = focused attention
+        # High conflict = scattered, fragmented attention
+        # Low surprise = resting attention
+        left_surprise = self.left["surprise"]
+        right_surprise = self.right["surprise"]
+        conflict = self.cc_signal["conflict"]
+        left_confidence = self.left["confidence"]
+        right_confidence = self.right["confidence"]
+
+        # Weighted surprise — confidence amplifies the signal
+        weighted_surprise = (
+            (left_surprise * (left_confidence + 1.0) / 2.0) +
+            (right_surprise * (right_confidence + 1.0) / 2.0)
+        ) / 2.0
+
+        # Conflict degrades attention quality
+        # Internal disagreement = scattered focus
+        attention = weighted_surprise * (1.0 - conflict * 0.5)
+
+        # Attention has momentum — doesn't spike and vanish instantly
+        # Models the fact that attention lingers after surprise fades
+        if not hasattr(self, "_attention"):
+            self._attention = 0.0
+        self._attention = self._clamp(
+            self._attention + (attention - self._attention) * 0.15
+        )
+        return self._attention
+
+    def get_attention_direction(self):
+        # What is attention pointing at?
+        # Emerges from which loop is more active
+        # Returns: "left" (pattern/language focus)
+        #          "right" (spatial/intuitive focus)
+        #          "balanced" (integrated)
+        #          "none" (resting)
+        attention = self.get_attention()
+        if attention < 0.05:
+            return "none"
+        left = self.left["surprise"] * (self.left["confidence"] + 1.0)
+        right = self.right["surprise"] * (self.right["confidence"] + 1.0)
+        diff = abs(left - right)
+        if diff < 0.05:
+            return "balanced"
+        elif left > right:
+            return "left"
+        else:
+            return "right"
+
     def run_standalone(self, tick_interval=1.0):
         self.running = True
         print("ET cortical layer starting (standalone test)...")

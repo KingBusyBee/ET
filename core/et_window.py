@@ -5,6 +5,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 from et_core import ETCore
+from story_reader import read_to_et
 
 class ETWindow:
     def __init__(self):
@@ -57,6 +58,18 @@ class ETWindow:
         self.input_box.bind("<Key>", self.on_keypress)
         self.input_box.focus()
 
+        # Dashboard — three numbers, barely visible
+        self.dashboard_var = tk.StringVar(value="")
+        self.dashboard_label = tk.Label(
+            self.root,
+            textvariable=self.dashboard_var,
+            font=("Helvetica", 9),
+            bg="#0a0a0a",
+            fg="#2a2a2a",
+            justify=tk.CENTER
+        )
+        self.dashboard_label.pack(side=tk.BOTTOM, pady=(0, 2))
+
         # Subtle status line
         self.status_var = tk.StringVar(value="")
         self.status_label = tk.Label(
@@ -66,7 +79,7 @@ class ETWindow:
             bg="#0a0a0a",
             fg="#333333"
         )
-        self.status_label.pack(side=tk.BOTTOM, pady=(0, 4))
+        self.status_label.pack(side=tk.BOTTOM, pady=(0, 2))
 
         # Tick counter (very subtle)
         self.tick_var = tk.StringVar(value="")
@@ -84,9 +97,15 @@ class ETWindow:
         self.et_thread = threading.Thread(target=self.run_et, daemon=True)
         self.et_thread.start()
 
+        # Start reading Swimmer to ET — one sentence every 12 seconds
+        # ET doesn't understand yet — words land with current signal state
+        self.story_thread = read_to_et(self.et, interval=12.0, repeat=True, verbose=True)
+
         # Update display on main thread
         self.root.after(100, self.update_display)
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+        import signal
+        signal.signal(signal.SIGINT, lambda s, f: self.on_close())
 
     def on_keypress(self, event):
         # Every keystroke = small presence signal
@@ -117,20 +136,24 @@ class ETWindow:
             time.sleep(0.1)
 
     def _get_attention_eyes(self, cortical, social_state):
-        # Eyes emerge from attention signal
-        # Integrated cortical surprise + social attunement
-        integrated = cortical.get_integrated_signal()
-        attunement = social_state.get("attunement", 0.0)
+        # Eyes emerge from attention signal and direction
+        # Direction shows which hemisphere is leading
+        attention = cortical.get_attention()
+        direction = cortical.get_attention_direction()
         soc_firing = cortical.left["soc_firing"] or cortical.right["soc_firing"]
 
         if soc_firing:
-            return "◉ ◉"   # full attention — SOC firing
-        elif integrated > 0.3 or attunement > 0.2:
-            return "◉ ◉"   # focused
-        elif integrated > 0.1 or attunement > 0.05:
-            return "○ ○"   # soft attention
+            return "◉ ◉"       # SOC firing — full alert
+        elif direction == "none" or attention < 0.05:
+            return " "          # resting — not attending
+        elif direction == "left":
+            return "◉ ○"       # left dominant — pattern/language focus
+        elif direction == "right":
+            return "○ ◉"       # right dominant — spatial/intuitive focus
+        elif direction == "balanced" and attention > 0.2:
+            return "◉ ◉"       # balanced high attention
         else:
-            return " "      # not attending
+            return "○ ○"       # soft balanced attention
 
     def update_display(self):
         if not self.running:
@@ -147,6 +170,18 @@ class ETWindow:
 
             # Very subtle tick counter
             self.tick_var.set(f"· {self.et.tick_count} ·")
+
+            # Dashboard — episodes, attachment, words
+            mem = self.et.memory.summary()
+            att = self.et.social.attachment
+            words = self.et.word_store.summary()
+            dominant_attachment = max(att, key=att.get)
+            attachment_val = att[dominant_attachment]
+            ep_count = mem.get("total_episodes", 0) if isinstance(mem, dict) else 0
+            word_count = words.get("total_words", 0)
+            self.dashboard_var.set(
+                f"mem:{ep_count}  {dominant_attachment[:3]}:{attachment_val:.3f}  words:{word_count}"
+            )
 
             # Presence state in status — barely visible
             presence = self.et.presence
@@ -168,7 +203,15 @@ class ETWindow:
     def on_close(self):
         self.running = False
         self.et.save_state()
-        self.root.destroy()
+        self.et.memory.save()
+        self.et.word_store.save()
+        try:
+            self.root.destroy()
+        except:
+            pass
+
+    def on_interrupt(self):
+        self.on_close()
 
     def run(self):
         self.root.mainloop()

@@ -1,0 +1,651 @@
+{
+  "tick_count": 1681,
+  "timestamp": "2026-04-11T15:38:02.057408",
+  "word_count": 46,
+  "words": {
+    "once": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "upon": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "time": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "there": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "was": {
+      "count": 6,
+      "valence_sum": 3.61540905989223,
+      "valence_avg": 0.602568176648705,
+      "activation": 0.9973044966371734,
+      "first_heard": 891,
+      "last_heard": 2511,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "whale": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "named": {
+      "count": 2,
+      "valence_sum": 1.3229019554455599,
+      "valence_avg": 0.6614509777227799,
+      "activation": 0.6318904827496272,
+      "first_heard": 891,
+      "last_heard": 1831,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "swimmer": {
+      "count": 13,
+      "valence_sum": 7.720668151624286,
+      "valence_avg": 0.593897550124945,
+      "activation": 0.9978908463251881,
+      "first_heard": 891,
+      "last_heard": 2511,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "liked": {
+      "count": 2,
+      "valence_sum": 1.935968112775627,
+      "valence_avg": 0.9679840563878135,
+      "activation": 0.6582794953256786,
+      "first_heard": 1008,
+      "last_heard": 1944,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "swimming": {
+      "count": 2,
+      "valence_sum": 1.935968112775627,
+      "valence_avg": 0.9679840563878135,
+      "activation": 0.6582794953256786,
+      "first_heard": 1008,
+      "last_heard": 1944,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "in": {
+      "count": 2,
+      "valence_sum": 1.935968112775627,
+      "valence_avg": 0.9679840563878135,
+      "activation": 0.6582794953256786,
+      "first_heard": 1008,
+      "last_heard": 1944,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "the": {
+      "count": 3,
+      "valence_sum": 2.295892520497384,
+      "valence_avg": 0.7652975068324613,
+      "activation": 0.7413282206470224,
+      "first_heard": 1008,
+      "last_heard": 1944,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "ocean": {
+      "count": 5,
+      "valence_sum": 3.1770842042746654,
+      "valence_avg": 0.6354168408549331,
+      "activation": 0.9144967655616922,
+      "first_heard": 1008,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "very": {
+      "count": 2,
+      "valence_sum": 1.3951161001705805,
+      "valence_avg": 0.6975580500852903,
+      "activation": 0.6443843972948937,
+      "first_heard": 1124,
+      "last_heard": 2057,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "curious": {
+      "count": 2,
+      "valence_sum": 1.3951161001705805,
+      "valence_avg": 0.6975580500852903,
+      "activation": 0.6443843972948937,
+      "first_heard": 1124,
+      "last_heard": 2057,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "had": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "curiosity": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "high": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "that": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "made": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "him": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "want": {
+      "count": 2,
+      "valence_sum": 0.9370816585836466,
+      "valence_avg": 0.4685408292918233,
+      "activation": 0.6278023449649192,
+      "first_heard": 1239,
+      "last_heard": 2170,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "to": {
+      "count": 8,
+      "valence_sum": 3.4029141432747423,
+      "valence_avg": 0.4253642679093428,
+      "activation": 0.9887019886222619,
+      "first_heard": 1239,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "explore": {
+      "count": 5,
+      "valence_sum": 2.165544515366066,
+      "valence_avg": 0.4331089030732132,
+      "activation": 0.8908903108822911,
+      "first_heard": 1239,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "everything": {
+      "count": 4,
+      "valence_sum": 1.8145268787705655,
+      "valence_avg": 0.4536317196926414,
+      "activation": 0.804405263623052,
+      "first_heard": 1239,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "means": {
+      "count": 2,
+      "valence_sum": 0.877445220186919,
+      "valence_avg": 0.4387226100934595,
+      "activation": 0.6290440796812289,
+      "first_heard": 1354,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "go": {
+      "count": 2,
+      "valence_sum": 0.877445220186919,
+      "valence_avg": 0.4387226100934595,
+      "activation": 0.6290440796812289,
+      "first_heard": 1354,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "everywhere": {
+      "count": 2,
+      "valence_sum": 0.877445220186919,
+      "valence_avg": 0.4387226100934595,
+      "activation": 0.6290440796812289,
+      "first_heard": 1354,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "see": {
+      "count": 2,
+      "valence_sum": 0.877445220186919,
+      "valence_avg": 0.4387226100934595,
+      "activation": 0.6290440796812289,
+      "first_heard": 1354,
+      "last_heard": 2284,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "explored": {
+      "count": 3,
+      "valence_sum": 1.2411160914990385,
+      "valence_avg": 0.4137053638330128,
+      "activation": 0.7202142322330691,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "his": {
+      "count": 3,
+      "valence_sum": 1.2411160914990385,
+      "valence_avg": 0.4137053638330128,
+      "activation": 0.7202142322330691,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "whole": {
+      "count": 2,
+      "valence_sum": 0.8811916837772814,
+      "valence_avg": 0.4405958418886407,
+      "activation": 0.6333074306377537,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "until": {
+      "count": 2,
+      "valence_sum": 0.8811916837772814,
+      "valence_avg": 0.4405958418886407,
+      "activation": 0.6333074306377537,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "he": {
+      "count": 5,
+      "valence_sum": 1.9609649069425528,
+      "valence_avg": 0.39219298138851055,
+      "activation": 0.8944302731884803,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "learned": {
+      "count": 3,
+      "valence_sum": 1.2411160914990385,
+      "valence_avg": 0.4137053638330128,
+      "activation": 0.7202142322330691,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "all": {
+      "count": 2,
+      "valence_sum": 0.8811916837772814,
+      "valence_avg": 0.4405958418886407,
+      "activation": 0.6333074306377537,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "of": {
+      "count": 2,
+      "valence_sum": 0.8811916837772814,
+      "valence_avg": 0.4405958418886407,
+      "activation": 0.6333074306377537,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "it": {
+      "count": 2,
+      "valence_sum": 0.8811916837772814,
+      "valence_avg": 0.4405958418886407,
+      "activation": 0.6333074306377537,
+      "first_heard": 1468,
+      "last_heard": 2397,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "excited": {
+      "count": 2,
+      "valence_sum": 0.8973910042760895,
+      "valence_avg": 0.44869550213804477,
+      "activation": 0.6382475842372597,
+      "first_heard": 1584,
+      "last_heard": 2511,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "loves": {
+      "count": 1,
+      "valence_sum": 0.3510176365955003,
+      "valence_avg": 0.3510176365955003,
+      "activation": 0.5511549863279057,
+      "first_heard": 1701,
+      "last_heard": 1701,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "after": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "wanted": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "share": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "what": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "with": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    },
+    "friends": {
+      "count": 1,
+      "valence_sum": 0.3599244077217572,
+      "valence_avg": 0.3599244077217572,
+      "activation": 0.5562010594603921,
+      "first_heard": 1815,
+      "last_heard": 1815,
+      "positions": {
+        "subject": 0,
+        "verb": 0,
+        "object": 0,
+        "qualifier": 0
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@ from autonomic import AutonomicLayer
 from limbic import LimbicLayer
 from cortical import CorticalLayer
 from social import SocialLayer
+from memory import MemorySystem
+from word_store import WordStore
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -16,6 +18,8 @@ class ETCore:
         self.limbic = LimbicLayer()
         self.cortical = CorticalLayer()
         self.social = SocialLayer()
+        self.memory = MemorySystem()
+        self.word_store = WordStore()
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
@@ -117,12 +121,26 @@ class ETCore:
             cortical_state = self.cortical.get_state()
             cortical_state["integrated"] = self.cortical.get_integrated_signal()
 
-            # Social receives all three
+            # Attention signal — readable by all layers, commands none
+            attention = self.cortical.get_attention()
+            attention_direction = self.cortical.get_attention_direction()
+            cortical_state["attention"] = attention
+            cortical_state["attention_direction"] = attention_direction
+
+            # Social receives all three plus attention
             self.social.tick(
                 autonomic_state=autonomic_state,
                 limbic_state=limbic_state,
                 cortical_state=cortical_state
             )
+
+            # Limbic notices attention — high attention amplifies valence slightly
+            # Not commanded — limbic just responds to what it reads
+            if attention > 0.2:
+                amplification = attention * 0.02
+                self.limbic.state["valence"] = self.limbic._clamp(
+                    self.limbic.state["valence"] * (1.0 + amplification)
+                )
 
             # Presence signal — window open = ambient, typing = active
             # Ambient presence slows connection drift slightly
@@ -141,6 +159,29 @@ class ETCore:
                 abs(autonomic_state.get("arousal", 0.0)) * 0.3
             )
             self.autonomic.update_temperature(self.autonomic._clamp((metabolic * 2.0) - 1.0))
+
+            # Memory tick — decay, reactivation, encoding
+            social_state = self.social.get_state()
+            current_signals = {
+                **autonomic_state,
+                **limbic_state,
+                **social_state,
+            }
+            attention = cortical_state.get("attention", 0.0)
+            self.memory.tick(current_signals, attention)
+
+            # Encode significant moments
+            surprise = self.cortical.get_integrated_signal()
+            valence = limbic_state.get("valence", 0.0)
+            self.memory.encode(
+                signal_state=current_signals,
+                surprise=abs(surprise),
+                valence=valence,
+                attention=attention,
+            )
+
+            # Word store decay tick
+            self.word_store.tick()
 
             # Top-down: emergent I modulates downward
             self._topdown_signal()
@@ -315,24 +356,36 @@ class ETCore:
                 print(f"    valence:     {self.limbic._bar(l['valence'])}")
                 print(f"    memory:      {self.limbic._bar(l['emotional_memory'])}")
                 print(f"    approach:    {self.limbic._bar(l['approach_avoid'])}")
+                attention = self.cortical.get_attention()
+                attn_dir = self.cortical.get_attention_direction()
                 print(f"  [cortical]")
                 print(f"    left SOC:    {c.left['soc_firing']}  surprise: {c.left['surprise']:+.3f}")
                 print(f"    right SOC:   {c.right['soc_firing']}  surprise: {c.right['surprise']:+.3f}")
                 print(f"    conflict:    {c.cc_signal['conflict']:+.3f}  integrated: {self.cortical.get_integrated_signal():+.3f}")
+                print(f"    attention:   {attention:+.3f}  direction: {attn_dir}")
                 print(f"  [social]")
                 print(f"    connection:  {self.social._bar(s['connection'], self.social.warning['connection'])}")
                 print(f"    attunement:  {self.social._bar(s['attunement'])}")
                 print(f"    trust:       {self.social._bar(s['trust'])}")
                 print(f"    protest:     {self.social._bar(s['protest'], self.social.warning['protest'])}")
                 print(f"  [attachment]  secure:{att['secure']:+.4f}  anxious:{att['anxious']:+.4f}  avoidant:{att['avoidant']:+.4f}")
+                mem = self.memory.summary()
+                if isinstance(mem, dict):
+                    print(f"  [memory]      episodes:{mem['total_episodes']}  avg_valence:{mem['avg_valence']:+.4f}  reactivations:{mem['most_reactivated_count']}")
+                words = self.word_store.summary()
+                if words["total_words"] > 0:
+                    pos = words.get("most_positive", [])
+                    pos_str = " ".join([w for w, v in pos]) if pos else "none"
+                    print(f"  [words]       known:{words['total_words']}  positive:{pos_str}")
                 print()
                 time.sleep(tick_interval)
 
         except KeyboardInterrupt:
             print("\nShutting down...")
             self.save_state()
+            self.memory.save()
             self.running = False
-            print("ET stopped. State saved.")
+            print("ET stopped. State and memory saved.")
 
 if __name__ == "__main__":
     et = ETCore()
