@@ -38,18 +38,37 @@ class ETWindow:
         )
         self.eyes_label.pack(pady=(10, 0))
 
-        # ET's voice — what ET says
-        self.utterance_var = tk.StringVar(value="")
-        self.utterance_label = tk.Label(
-            self.root,
-            textvariable=self.utterance_var,
-            font=("Helvetica", 13, "italic"),
+        # Scrollable conversation area
+        self.conversation_frame = tk.Frame(self.root, bg="#0a0a0a")
+        self.conversation_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=(8, 0))
+
+        self.conversation = tk.Text(
+            self.conversation_frame,
+            font=("Helvetica", 11),
             bg="#0a0a0a",
             fg="#555555",
-            wraplength=340,
-            justify=tk.CENTER
+            relief=tk.FLAT,
+            wrap=tk.WORD,
+            state=tk.DISABLED,
+            height=8,
+            cursor="arrow",
         )
-        self.utterance_label.pack(pady=(8, 0))
+        self.conversation.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        scrollbar = tk.Scrollbar(
+            self.conversation_frame,
+            command=self.conversation.yview,
+            bg="#0a0a0a",
+            troughcolor="#0a0a0a",
+            width=4
+        )
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        self.conversation.config(yscrollcommand=scrollbar.set)
+
+        # Color tags
+        self.conversation.tag_configure("et", foreground="#666666", font=("Helvetica", 11, "italic"))
+        self.conversation.tag_configure("you", foreground="#444444", font=("Helvetica", 11))
+        self.conversation.tag_configure("system", foreground="#2a2a2a", font=("Helvetica", 9))
 
         # Input area — where you talk to ET
         self.input_frame = tk.Frame(self.root, bg="#0a0a0a")
@@ -112,7 +131,7 @@ class ETWindow:
 
         # Start reading Swimmer to ET — one sentence every 12 seconds
         # ET doesn't understand yet — words land with current signal state
-        self.story_thread = read_to_et(self.et, interval=12.0, repeat=True, verbose=True)
+        self.story_thread = read_to_et(self.et, interval=8.0, repeat=True, verbose=True)
 
         # Update display on main thread
         self.root.after(100, self.update_display)
@@ -128,11 +147,20 @@ class ETWindow:
                 daemon=True
             ).start()
 
+    def _add_to_conversation(self, text, tag="system"):
+        self.conversation.config(state=tk.NORMAL)
+        self.conversation.insert(tk.END, text + "\n", tag)
+        self.conversation.see(tk.END)
+        self.conversation.config(state=tk.DISABLED)
+
     def on_input(self, event):
         text = self.input_var.get().strip()
         if not text:
             return
         self.input_var.set("")
+
+        # Show what you typed in the conversation
+        self._add_to_conversation(text, tag="you")
 
         # Text length = signal strength, capped at 0.4
         charge = min(0.4, len(text) * 0.02)
@@ -140,6 +168,11 @@ class ETWindow:
         def send():
             self.et.interaction(charge)
             self.et.social.ticks_since_contact = 0
+            # Your words go into ET's word store too
+            with self.et.lock:
+                valence = self.et.limbic.state.get("valence", 0.0)
+                arousal = self.et.autonomic.state.get("arousal", 0.0)
+                self.et.word_store.hear(text, valence, arousal, self.et.tick_count)
 
         threading.Thread(target=send, daemon=True).start()
 
@@ -192,12 +225,10 @@ class ETWindow:
             # Very subtle tick counter
             self.tick_var.set(f"· {self.et.tick_count} ·")
 
-            # ET utterance — fades after a while
-            if self.et._last_utterance:
-                self.utterance_label.config(fg="#666666")
-                self.utterance_var.set(f""{self.et._last_utterance}"")
-            else:
-                self.utterance_var.set("")
+            # ET utterance — add to conversation if new
+            if self.et._last_utterance and self.et._last_utterance != getattr(self, "_displayed_utterance", None):
+                self._displayed_utterance = self.et._last_utterance
+                self._add_to_conversation(f"{self.et._last_utterance}", tag="et")
 
             # Dashboard — episodes, attachment, words
             mem = self.et.memory.summary()

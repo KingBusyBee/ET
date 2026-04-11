@@ -31,11 +31,15 @@ class LimbicLayer:
 
     def input_event(self, valence_charge):
         # External interaction — someone is there
-        # valence_charge: +1.0 = very positive, -1.0 = very negative
-        # Arousal amplifies how strongly this lands
-        amplified = valence_charge * (1.0 + abs(self.arousal_influence) * 0.5)
+        # Arousal amplifies but resistance builds near ceiling
+        amplified = valence_charge * (1.0 + abs(self.arousal_influence) * 0.3)
+        # Apply resistance near ceiling — prevents pinning
+        current = self.state["valence"]
+        if abs(current) > 0.7:
+            resistance = (abs(current) - 0.7) / 0.3
+            amplified = amplified * (1.0 - resistance * 0.8)
         self.state["valence"] = self._clamp(
-            self.state["valence"] + amplified * 0.3
+            self.state["valence"] + amplified * 0.15
         )
 
     def tick(self, autonomic_state=None):

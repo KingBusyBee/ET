@@ -143,6 +143,14 @@ class ETCore:
             cortical_state["attention"] = attention
             cortical_state["attention_direction"] = attention_direction
 
+            # Attention costs energy — sustained focus increases fatigue
+            # Biologically accurate: focused attention burns glucose
+            if attention > 0.2:
+                attention_fatigue = attention * 0.00005
+                self.autonomic.state["fatigue"] = self.autonomic._clamp(
+                    self.autonomic.state["fatigue"] + attention_fatigue
+                )
+
             # Social receives all three plus attention
             self.social.tick(
                 autonomic_state=autonomic_state,
@@ -196,8 +204,11 @@ class ETCore:
                 attention=attention,
             )
 
-            # Word store decay tick
-            self.word_store.tick()
+            # Word store decay tick — pass current signals for reactivation
+            self.word_store.tick(
+                current_signals=current_signals,
+                attention=cortical_state.get("attention", 0.0)
+            )
 
             # Voice — ET speaks when signal pressure is high enough
             combined_signals = {
@@ -262,9 +273,8 @@ class ETCore:
             self.social.interaction(valence_charge, autonomic_arousal=arousal)
             self.social.ticks_since_contact = 0
 
-        # Print immediately so user sees it landed
-        label = "Positive" if valence_charge > 0 else "Negative"
-        print(f"  >> {label} interaction (valence: {valence_charge:+.2f})")
+        # Don't print every interaction — too noisy
+        # Window conversation area shows user input instead
         self._pending_interaction = valence_charge
 
     def save_state(self):
@@ -413,10 +423,8 @@ class ETCore:
                 if isinstance(mem, dict):
                     print(f"  [memory]      episodes:{mem['total_episodes']}  avg_valence:{mem['avg_valence']:+.4f}  reactivations:{mem['most_reactivated_count']}")
                 words = self.word_store.summary()
-                if words["total_words"] > 0:
-                    pos = words.get("most_positive", [])
-                    pos_str = " ".join([w for w, v in pos]) if pos else "none"
-                    print(f"  [words]       known:{words['total_words']}  positive:{pos_str}")
+                if words.get("total_scenes", 0) > 0:
+                    print(f"  [scenes]      scenes:{words['total_scenes']}  words:{words['total_words']}")
                 print()
                 time.sleep(tick_interval)
 

@@ -114,49 +114,57 @@ class VoiceSystem:
     def construct(self, word_store, signal_state, cortical):
         """
         Construct an utterance from current signal state.
-        Returns None if not enough words known yet.
+        Find scenes that match current state, reconstruct from those scenes.
+        Meaning comes from context, not individual word valence.
         """
-        if len(word_store.words) < 5:
+        if word_store.scene_count() < 3:
             return None
 
         valence = signal_state.get("valence", 0.0)
         arousal = signal_state.get("arousal", 0.0)
         attention = cortical.get_attention()
-        protest = signal_state.get("protest", 0.0)
-
-        # Utterance complexity scales with signal state
-        # High arousal + high attention = fuller sentences
-        # Low arousal or high fatigue = shorter output
         fatigue = signal_state.get("fatigue", 0.0)
-        complexity = max(1, int(
-            1 +
-            attention * 2 +
-            abs(valence) * 1.5 -
-            fatigue * 1.0
-        ))
-        complexity = min(4, complexity)  # max SVOQ
 
-        slots = ["subject", "verb", "object", "qualifier"][:complexity]
-        used = []
-        words = []
-
-        for slot in slots:
-            word = self._select_word(
-                word_store, slot, valence, arousal, exclude=used
-            )
-            if word:
-                words.append(word)
-                used.append(word)
-                # Record that this word appeared in this slot
-                word_store.words[word]["positions"][slot] = (
-                    word_store.words[word]["positions"].get(slot, 0) + 1
-                )
-
-        if not words:
+        # Find scenes that resemble current signal state
+        matching_scenes = word_store.find_scenes_for_signal(
+            valence, arousal, attention, n=5
+        )
+        if not matching_scenes:
             return None
 
-        utterance = " ".join(words)
-        return utterance
+        # Complexity scales with arousal and attention
+        complexity = max(1, int(
+            1 + attention * 2 + abs(valence) * 1.0 - fatigue * 0.5
+        ))
+        complexity = min(4, complexity)
+
+        # Pull words from matching scenes weighted by activation
+        import random
+        candidate_words = []
+        for scene in matching_scenes:
+            weight = scene["activation"]
+            for word in scene["words"]:
+                if len(word) > 2:
+                    candidate_words.append((word, weight))
+
+        if not candidate_words:
+            return None
+
+        # Select words without repetition
+        selected = []
+        seen = set()
+        random.shuffle(candidate_words)
+        candidate_words.sort(key=lambda x: x[1], reverse=True)
+
+        for word, weight in candidate_words:
+            if word not in seen and len(selected) < complexity:
+                selected.append(word)
+                seen.add(word)
+
+        if not selected:
+            return None
+
+        return " ".join(selected)
 
     def speak(self, word_store, signal_state, cortical, tick):
         """
