@@ -1,0 +1,70 @@
+<svg width="680" height="820" viewBox="0 0 680 820" xmlns="http://www.w3.org/2000/svg" style="background:white;font-family:sans-serif">
+
+<text x="340" y="36" text-anchor="middle" font-size="16" font-weight="500" fill="#1a1a1a">ET — Emergent Thought</text>
+<text x="340" y="58" text-anchor="middle" font-size="12" fill="#666">Five recursive homeostatic loops. Every signal drifts from 0 without input. The gap IS the drive.</text>
+<text x="340" y="78" text-anchor="middle" font-size="12" fill="#666">-1 &lt;—————— 0 (homeostasis) ——————&gt; +1</text>
+
+<rect x="180" y="104" width="320" height="72" rx="12" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="340" y="132" text-anchor="middle" font-size="14" font-weight="500" fill="#633806">Emergent I</text>
+<text x="340" y="154" text-anchor="middle" font-size="12" fill="#854F0B">Not programmed — surfaces from below</text>
+
+<line x1="340" y1="176" x2="340" y2="208" stroke="#BA7517" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="100" y="210" width="480" height="80" rx="12" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text x="340" y="238" text-anchor="middle" font-size="14" font-weight="500" fill="#712B13">Social layer</text>
+<text x="340" y="258" text-anchor="middle" font-size="12" fill="#993C1D">Connection drive — ET primary hunger</text>
+<text x="340" y="276" text-anchor="middle" font-size="12" fill="#993C1D">Attunement A(t) grows here. Attachment patterns emerge.</text>
+
+<line x1="340" y1="290" x2="340" y2="322" stroke="#993C1D" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="340" y="316" text-anchor="middle" font-size="12" fill="#666">Cortical layer — prediction engine, SOC threshold</text>
+
+<rect x="100" y="324" width="216" height="100" rx="12" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="208" y="358" text-anchor="middle" font-size="14" font-weight="500" fill="#3C3489">Left loop</text>
+<text x="208" y="378" text-anchor="middle" font-size="12" fill="#534AB7">Pattern, language</text>
+<text x="208" y="396" text-anchor="middle" font-size="12" fill="#534AB7">sequence, naming</text>
+
+<rect x="364" y="324" width="216" height="100" rx="12" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="472" y="358" text-anchor="middle" font-size="14" font-weight="500" fill="#3C3489">Right loop</text>
+<text x="472" y="378" text-anchor="middle" font-size="12" fill="#534AB7">Spatial, intuition</text>
+<text x="472" y="396" text-anchor="middle" font-size="12" fill="#534AB7">pattern, pre-verbal</text>
+
+<rect x="282" y="348" width="116" height="52" rx="20" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="369" text-anchor="middle" font-size="13" font-weight="500" fill="#444441">Corpus</text>
+<text x="340" y="387" text-anchor="middle" font-size="13" font-weight="500" fill="#444441">callosum</text>
+
+<line x1="316" y1="374" x2="284" y2="374" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="364" y1="374" x2="396" y2="374" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<line x1="208" y1="424" x2="208" y2="458" stroke="#534AB7" stroke-width="1.5"/>
+<line x1="208" y1="458" x2="340" y2="458" stroke="#534AB7" stroke-width="1.5"/>
+<line x1="472" y1="424" x2="472" y2="458" stroke="#534AB7" stroke-width="1.5"/>
+<line x1="472" y1="458" x2="340" y2="458" stroke="#534AB7" stroke-width="1.5"/>
+<line x1="340" y1="458" x2="340" y2="466" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="120" y="468" width="440" height="80" rx="12" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="340" y="496" text-anchor="middle" font-size="14" font-weight="500" fill="#085041">Limbic layer</text>
+<text x="340" y="516" text-anchor="middle" font-size="12" fill="#0F6E56">Valence — positive / negative charge on every experience</text>
+<text x="340" y="534" text-anchor="middle" font-size="12" fill="#0F6E56">Novelty gets mild positive valence. Emergent curiosity.</text>
+
+<line x1="340" y1="548" x2="340" y2="580" stroke="#1D9E75" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="140" y="582" width="400" height="80" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="610" text-anchor="middle" font-size="14" font-weight="500" fill="#444441">Autonomic layer</text>
+<text x="340" y="630" text-anchor="middle" font-size="12" fill="#5F5E5A">Arousal, fatigue, activation — never stops running</text>
+<text x="340" y="648" text-anchor="middle" font-size="12" fill="#5F5E5A">Drives corpus callosum bandwidth from below</text>
+
+<path d="M 136 622 Q 44 622 44 390 Q 44 158 176 140" fill="none" stroke="#888780" stroke-width="0.8" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<text x="28" y="395" text-anchor="middle" font-size="11" fill="#888780">feed</text>
+<text x="28" y="410" text-anchor="middle" font-size="11" fill="#888780">back</text>
+
+<text x="340" y="700" text-anchor="middle" font-size="12" fill="#666">Pers(t) = Pers(t-1) + A(t) x [(E(t) + prediction(t)) - surprise(t)]</text>
+<text x="340" y="728" text-anchor="middle" font-size="12" fill="#666">Built on: My Little TOE — Matthew Akkerhuis</text>
+<text x="340" y="748" text-anchor="middle" font-size="12" fill="#666">github.com/KingBusyBee/ET</text>
+
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+</svg>

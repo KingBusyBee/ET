@@ -9,3 +9,7 @@ Read the book: https://www.amazon.com/My-Little-TOE-Perception-Perspective/dp/B0
 GitHub: @KingBusyBee
 
 License: MIT
+
+## Architecture
+
+![ET Signal Architecture](docs/ET_architecture.png)
