@@ -52,6 +52,9 @@ class AutonomicLayer:
             self.state["arousal"] + (arousal_pull - self.state["arousal"]) * 0.05
         )
 
+    def get_state(self):
+        return dict(self.state)
+
     def run(self, tick_interval=1.0):
         self.running = True
         print("ET autonomic layer starting...")
