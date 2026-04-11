@@ -38,6 +38,19 @@ class ETWindow:
         )
         self.eyes_label.pack(pady=(10, 0))
 
+        # ET's voice — what ET says
+        self.utterance_var = tk.StringVar(value="")
+        self.utterance_label = tk.Label(
+            self.root,
+            textvariable=self.utterance_var,
+            font=("Helvetica", 13, "italic"),
+            bg="#0a0a0a",
+            fg="#555555",
+            wraplength=340,
+            justify=tk.CENTER
+        )
+        self.utterance_label.pack(pady=(8, 0))
+
         # Input area — where you talk to ET
         self.input_frame = tk.Frame(self.root, bg="#0a0a0a")
         self.input_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=20, pady=20)
@@ -159,7 +172,15 @@ class ETWindow:
         if not self.running:
             return
         try:
-            face = self.et._get_face()
+            # Sleep overrides face
+            if self.et.sleep_system.sleeping:
+                depth = self.et.sleep_system.sleep_depth
+                if depth > 0.5:
+                    face = "😴"
+                else:
+                    face = "😪"
+            else:
+                face = self.et._get_face()
             self.face_var.set(face)
 
             eyes = self._get_attention_eyes(
@@ -171,6 +192,13 @@ class ETWindow:
             # Very subtle tick counter
             self.tick_var.set(f"· {self.et.tick_count} ·")
 
+            # ET utterance — fades after a while
+            if self.et._last_utterance:
+                self.utterance_label.config(fg="#666666")
+                self.utterance_var.set(f""{self.et._last_utterance}"")
+            else:
+                self.utterance_var.set("")
+
             # Dashboard — episodes, attachment, words
             mem = self.et.memory.summary()
             att = self.et.social.attachment
@@ -179,8 +207,10 @@ class ETWindow:
             attachment_val = att[dominant_attachment]
             ep_count = mem.get("total_episodes", 0) if isinstance(mem, dict) else 0
             word_count = words.get("total_words", 0)
+            sleep_state = self.et.sleep_system
+            sleep_str = f"z{sleep_state.cycles}" if sleep_state.sleeping else f"r{sleep_state.cycles}"
             self.dashboard_var.set(
-                f"mem:{ep_count}  {dominant_attachment[:3]}:{attachment_val:.3f}  words:{word_count}"
+                f"mem:{ep_count}  words:{word_count}  {sleep_str}"
             )
 
             # Presence state in status — barely visible

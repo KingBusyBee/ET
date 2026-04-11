@@ -9,6 +9,8 @@ from cortical import CorticalLayer
 from social import SocialLayer
 from memory import MemorySystem
 from word_store import WordStore
+from sleep import SleepSystem
+from voice import VoiceSystem
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -20,13 +22,27 @@ class ETCore:
         self.social = SocialLayer()
         self.memory = MemorySystem()
         self.word_store = WordStore()
+        self.sleep_system = SleepSystem()
+        self.voice = VoiceSystem()
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
         self._pending_interaction = None
+        self._last_utterance = None
         self.presence = "ambient"  # "absent" | "ambient" | "active"
         self.presence_ticks = 0    # ticks since last active interaction
         self.load_state()
+
+        # Startup rest — ET wakes somewhat refreshed
+        # Simulates overnight sleep between sessions
+        self.autonomic.state["fatigue"] = min(
+            self.autonomic.state["fatigue"],
+            0.3  # never start more tired than 0.3
+        )
+        self.autonomic.state["arousal"] = max(
+            self.autonomic.state["arousal"],
+            -0.2  # never start more drowsy than -0.2
+        )
 
     def _get_face(self):
         # Face emerges from signal state — ET never picks this
@@ -182,6 +198,30 @@ class ETCore:
 
             # Word store decay tick
             self.word_store.tick()
+
+            # Voice — ET speaks when signal pressure is high enough
+            combined_signals = {
+                **autonomic_state,
+                **limbic_state,
+                **social_state,
+            }
+            utterance = self.voice.speak(
+                self.word_store,
+                combined_signals,
+                self.cortical,
+                self.tick_count
+            )
+            if utterance:
+                self._last_utterance = utterance
+
+            # Sleep system — functional rest, not just failure state
+            sleep_status = self.sleep_system.tick(
+                self.autonomic, self.memory, self.word_store
+            )
+            if sleep_status == "entering_sleep":
+                print(f"  💤 ET entering sleep (tick {self.tick_count})")
+            elif sleep_status == "waking":
+                print(f"  ☀️  ET waking (cycle {self.sleep_system.cycles}, rested)")
 
             # Top-down: emergent I modulates downward
             self._topdown_signal()

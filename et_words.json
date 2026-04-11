@@ -1,15 +1,15 @@
 {
-  "tick_count": 1681,
-  "timestamp": "2026-04-11T15:38:02.057408",
+  "tick_count": 2618,
+  "timestamp": "2026-04-11T15:48:37.290370",
   "word_count": 46,
   "words": {
     "once": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -18,12 +18,12 @@
       }
     },
     "upon": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -32,12 +32,12 @@
       }
     },
     "time": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -46,12 +46,12 @@
       }
     },
     "there": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -60,12 +60,12 @@
       }
     },
     "was": {
-      "count": 6,
-      "valence_sum": 3.61540905989223,
-      "valence_avg": 0.602568176648705,
-      "activation": 0.9973044966371734,
+      "count": 11,
+      "valence_sum": 7.497048006294476,
+      "valence_avg": 0.6815498187540433,
+      "activation": 0.9998022324728133,
       "first_heard": 891,
-      "last_heard": 2511,
+      "last_heard": 3502,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -74,12 +74,12 @@
       }
     },
     "whale": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -88,12 +88,12 @@
       }
     },
     "named": {
-      "count": 2,
-      "valence_sum": 1.3229019554455599,
-      "valence_avg": 0.6614509777227799,
-      "activation": 0.6318904827496272,
+      "count": 4,
+      "valence_sum": 2.73879388901996,
+      "valence_avg": 0.68469847225499,
+      "activation": 0.7889869721354158,
       "first_heard": 891,
-      "last_heard": 1831,
+      "last_heard": 2821,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -102,12 +102,12 @@
       }
     },
     "swimmer": {
-      "count": 13,
-      "valence_sum": 7.720668151624286,
-      "valence_avg": 0.593897550124945,
-      "activation": 0.9978908463251881,
+      "count": 22,
+      "valence_sum": 14.725827242414084,
+      "valence_avg": 0.6693557837460947,
+      "activation": 0.999800403367562,
       "first_heard": 891,
-      "last_heard": 2511,
+      "last_heard": 3502,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -116,12 +116,12 @@
       }
     },
     "liked": {
-      "count": 2,
-      "valence_sum": 1.935968112775627,
-      "valence_avg": 0.9679840563878135,
-      "activation": 0.6582794953256786,
+      "count": 4,
+      "valence_sum": 3.7173353701976595,
+      "valence_avg": 0.9293338425494149,
+      "activation": 0.8292439363089176,
       "first_heard": 1008,
-      "last_heard": 1944,
+      "last_heard": 2934,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -130,12 +130,12 @@
       }
     },
     "swimming": {
-      "count": 2,
-      "valence_sum": 1.935968112775627,
-      "valence_avg": 0.9679840563878135,
-      "activation": 0.6582794953256786,
+      "count": 4,
+      "valence_sum": 3.7173353701976595,
+      "valence_avg": 0.9293338425494149,
+      "activation": 0.8292439363089176,
       "first_heard": 1008,
-      "last_heard": 1944,
+      "last_heard": 2934,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -144,12 +144,12 @@
       }
     },
     "in": {
-      "count": 2,
-      "valence_sum": 1.935968112775627,
-      "valence_avg": 0.9679840563878135,
-      "activation": 0.6582794953256786,
+      "count": 4,
+      "valence_sum": 3.7173353701976595,
+      "valence_avg": 0.9293338425494149,
+      "activation": 0.8292439363089176,
       "first_heard": 1008,
-      "last_heard": 1944,
+      "last_heard": 2934,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -158,12 +158,12 @@
       }
     },
     "the": {
-      "count": 3,
-      "valence_sum": 2.295892520497384,
-      "valence_avg": 0.7652975068324613,
-      "activation": 0.7413282206470224,
+      "count": 5,
+      "valence_sum": 4.077259777919417,
+      "valence_avg": 0.8154519555838833,
+      "activation": 0.9091190988781694,
       "first_heard": 1008,
-      "last_heard": 1944,
+      "last_heard": 2934,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -172,12 +172,12 @@
       }
     },
     "ocean": {
-      "count": 5,
-      "valence_sum": 3.1770842042746654,
-      "valence_avg": 0.6354168408549331,
-      "activation": 0.9144967655616922,
+      "count": 8,
+      "valence_sum": 5.630745914480404,
+      "valence_avg": 0.7038432393100506,
+      "activation": 0.9960791257989109,
       "first_heard": 1008,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -186,12 +186,12 @@
       }
     },
     "very": {
-      "count": 2,
-      "valence_sum": 1.3951161001705805,
-      "valence_avg": 0.6975580500852903,
-      "activation": 0.6443843972948937,
+      "count": 4,
+      "valence_sum": 3.178361070826825,
+      "valence_avg": 0.7945902677067063,
+      "activation": 0.8110678989030696,
       "first_heard": 1124,
-      "last_heard": 2057,
+      "last_heard": 3047,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -200,12 +200,12 @@
       }
     },
     "curious": {
-      "count": 2,
-      "valence_sum": 1.3951161001705805,
-      "valence_avg": 0.6975580500852903,
-      "activation": 0.6443843972948937,
+      "count": 4,
+      "valence_sum": 3.178361070826825,
+      "valence_avg": 0.7945902677067063,
+      "activation": 0.8110678989030696,
       "first_heard": 1124,
-      "last_heard": 2057,
+      "last_heard": 3047,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -214,12 +214,12 @@
       }
     },
     "had": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -228,12 +228,12 @@
       }
     },
     "curiosity": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -242,12 +242,12 @@
       }
     },
     "high": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -256,12 +256,12 @@
       }
     },
     "that": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -270,12 +270,12 @@
       }
     },
     "made": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -284,12 +284,12 @@
       }
     },
     "him": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -298,12 +298,12 @@
       }
     },
     "want": {
-      "count": 2,
-      "valence_sum": 0.9370816585836466,
-      "valence_avg": 0.4685408292918233,
-      "activation": 0.6278023449649192,
+      "count": 3,
+      "valence_sum": 1.6069400927654607,
+      "valence_avg": 0.5356466975884869,
+      "activation": 0.6859089036288779,
       "first_heard": 1239,
-      "last_heard": 2170,
+      "last_heard": 3160,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -312,12 +312,12 @@
       }
     },
     "to": {
-      "count": 8,
-      "valence_sum": 3.4029141432747423,
-      "valence_avg": 0.4253642679093428,
-      "activation": 0.9887019886222619,
+      "count": 11,
+      "valence_sum": 5.403807279752311,
+      "valence_avg": 0.49125520725021005,
+      "activation": 0.9911361243426017,
       "first_heard": 1239,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -326,12 +326,12 @@
       }
     },
     "explore": {
-      "count": 5,
-      "valence_sum": 2.165544515366066,
-      "valence_avg": 0.4331089030732132,
-      "activation": 0.8908903108822911,
+      "count": 7,
+      "valence_sum": 3.500920300695757,
+      "valence_avg": 0.5001314715279653,
+      "activation": 0.9911882723952156,
       "first_heard": 1239,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -340,12 +340,12 @@
       }
     },
     "everything": {
-      "count": 4,
-      "valence_sum": 1.8145268787705655,
-      "valence_avg": 0.4536317196926414,
-      "activation": 0.804405263623052,
+      "count": 6,
+      "valence_sum": 3.1499026641002565,
+      "valence_avg": 0.5249837773500428,
+      "activation": 0.9554304637958968,
       "first_heard": 1239,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -354,12 +354,12 @@
       }
     },
     "means": {
-      "count": 2,
-      "valence_sum": 0.877445220186919,
-      "valence_avg": 0.4387226100934595,
-      "activation": 0.6290440796812289,
+      "count": 3,
+      "valence_sum": 1.542962571334796,
+      "valence_avg": 0.5143208571115987,
+      "activation": 0.6862256435468828,
       "first_heard": 1354,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -368,12 +368,12 @@
       }
     },
     "go": {
-      "count": 2,
-      "valence_sum": 0.877445220186919,
-      "valence_avg": 0.4387226100934595,
-      "activation": 0.6290440796812289,
+      "count": 3,
+      "valence_sum": 1.542962571334796,
+      "valence_avg": 0.5143208571115987,
+      "activation": 0.6862256435468828,
       "first_heard": 1354,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -382,12 +382,12 @@
       }
     },
     "everywhere": {
-      "count": 2,
-      "valence_sum": 0.877445220186919,
-      "valence_avg": 0.4387226100934595,
-      "activation": 0.6290440796812289,
+      "count": 3,
+      "valence_sum": 1.542962571334796,
+      "valence_avg": 0.5143208571115987,
+      "activation": 0.6862256435468828,
       "first_heard": 1354,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -396,12 +396,12 @@
       }
     },
     "see": {
-      "count": 2,
-      "valence_sum": 0.877445220186919,
-      "valence_avg": 0.4387226100934595,
-      "activation": 0.6290440796812289,
+      "count": 3,
+      "valence_sum": 1.542962571334796,
+      "valence_avg": 0.5143208571115987,
+      "activation": 0.6862256435468828,
       "first_heard": 1354,
-      "last_heard": 2284,
+      "last_heard": 3273,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -410,12 +410,12 @@
       }
     },
     "explored": {
-      "count": 3,
-      "valence_sum": 1.2411160914990385,
-      "valence_avg": 0.4137053638330128,
-      "activation": 0.7202142322330691,
+      "count": 4,
+      "valence_sum": 1.9134105442827447,
+      "valence_avg": 0.4783526360706862,
+      "activation": 0.7766967274350581,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -424,12 +424,12 @@
       }
     },
     "his": {
-      "count": 3,
-      "valence_sum": 1.2411160914990385,
-      "valence_avg": 0.4137053638330128,
-      "activation": 0.7202142322330691,
+      "count": 4,
+      "valence_sum": 1.9134105442827447,
+      "valence_avg": 0.4783526360706862,
+      "activation": 0.7766967274350581,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -438,12 +438,12 @@
       }
     },
     "whole": {
-      "count": 2,
-      "valence_sum": 0.8811916837772814,
-      "valence_avg": 0.4405958418886407,
-      "activation": 0.6333074306377537,
+      "count": 3,
+      "valence_sum": 1.5534861365609878,
+      "valence_avg": 0.5178287121869959,
+      "activation": 0.6904579067222739,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -452,12 +452,12 @@
       }
     },
     "until": {
-      "count": 2,
-      "valence_sum": 0.8811916837772814,
-      "valence_avg": 0.4405958418886407,
-      "activation": 0.6333074306377537,
+      "count": 3,
+      "valence_sum": 1.5534861365609878,
+      "valence_avg": 0.5178287121869959,
+      "activation": 0.6904579067222739,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -466,12 +466,12 @@
       }
     },
     "he": {
-      "count": 5,
-      "valence_sum": 1.9609649069425528,
-      "valence_avg": 0.39219298138851055,
-      "activation": 0.8944302731884803,
+      "count": 6,
+      "valence_sum": 2.6332593597262592,
+      "valence_avg": 0.4388765599543765,
+      "activation": 0.9503545006583588,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -480,12 +480,12 @@
       }
     },
     "learned": {
-      "count": 3,
-      "valence_sum": 1.2411160914990385,
-      "valence_avg": 0.4137053638330128,
-      "activation": 0.7202142322330691,
+      "count": 4,
+      "valence_sum": 1.9134105442827447,
+      "valence_avg": 0.4783526360706862,
+      "activation": 0.7766967274350581,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -494,12 +494,12 @@
       }
     },
     "all": {
-      "count": 2,
-      "valence_sum": 0.8811916837772814,
-      "valence_avg": 0.4405958418886407,
-      "activation": 0.6333074306377537,
+      "count": 3,
+      "valence_sum": 1.5534861365609878,
+      "valence_avg": 0.5178287121869959,
+      "activation": 0.6904579067222739,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -508,12 +508,12 @@
       }
     },
     "of": {
-      "count": 2,
-      "valence_sum": 0.8811916837772814,
-      "valence_avg": 0.4405958418886407,
-      "activation": 0.6333074306377537,
+      "count": 3,
+      "valence_sum": 1.5534861365609878,
+      "valence_avg": 0.5178287121869959,
+      "activation": 0.6904579067222739,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -522,12 +522,12 @@
       }
     },
     "it": {
-      "count": 2,
-      "valence_sum": 0.8811916837772814,
-      "valence_avg": 0.4405958418886407,
-      "activation": 0.6333074306377537,
+      "count": 3,
+      "valence_sum": 1.5534861365609878,
+      "valence_avg": 0.5178287121869959,
+      "activation": 0.6904579067222739,
       "first_heard": 1468,
-      "last_heard": 2397,
+      "last_heard": 3387,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -536,12 +536,12 @@
       }
     },
     "excited": {
-      "count": 2,
-      "valence_sum": 0.8973910042760895,
-      "valence_avg": 0.44869550213804477,
-      "activation": 0.6382475842372597,
+      "count": 3,
+      "valence_sum": 1.5798930464476908,
+      "valence_avg": 0.5266310154825636,
+      "activation": 0.6955700075453248,
       "first_heard": 1584,
-      "last_heard": 2511,
+      "last_heard": 3502,
       "positions": {
         "subject": 0,
         "verb": 0,
@@ -553,7 +553,7 @@
       "count": 1,
       "valence_sum": 0.3510176365955003,
       "valence_avg": 0.3510176365955003,
-      "activation": 0.5511549863279057,
+      "activation": 0.45252757446516245,
       "first_heard": 1701,
       "last_heard": 1701,
       "positions": {
@@ -567,7 +567,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
@@ -581,7 +581,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
@@ -595,7 +595,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
@@ -609,7 +609,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
@@ -623,7 +623,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
@@ -637,7 +637,7 @@
       "count": 1,
       "valence_sum": 0.3599244077217572,
       "valence_avg": 0.3599244077217572,
-      "activation": 0.5562010594603921,
+      "activation": 0.4577822887112937,
       "first_heard": 1815,
       "last_heard": 1815,
       "positions": {
