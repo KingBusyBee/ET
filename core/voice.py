@@ -112,6 +112,11 @@ class VoiceSystem:
         return signal_pressure >= self.speak_threshold
 
     def construct(self, word_store, signal_state, cortical):
+        # Vocabulary not yet tracked — voice stays silent
+        # Language will emerge from signal patterns later
+        return None
+
+    def _construct_deprecated(self, word_store, signal_state, cortical):
         """
         Construct an utterance from current signal state.
         Find scenes that match current state, reconstruct from those scenes.

@@ -72,10 +72,10 @@ class SleepSystem:
                         ep["activation"] + self.consolidation_rate
                     )
 
-            # Word store — rarely used words fade during sleep
-            for word, data in word_store.words.items():
-                if data["count"] <= 1:
-                    data["activation"] -= self.consolidation_rate
+            # Word store — rarely activated scenes fade during sleep
+            for scene in word_store.scenes:
+                if scene["reactivations"] == 0:
+                    scene["activation"] -= self.consolidation_rate * 2
 
         # Check if ET should wake up
         if fatigue <= self.wake_threshold:
