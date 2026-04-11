@@ -99,7 +99,9 @@ class AutonomicLayer:
         self._apply_rebound("fatigue")
         self._check_warning("fatigue")
 
-        # Temperature
+        # Temperature = metabolic activity, not CPU heat
+        # Will be updated by et_core with real signal activity
+        # Standalone mode uses a resting baseline
         cpu = self._get_cpu_load()
         temp_change = (cpu - self.state["temperature"]) * 0.1
         temp_change = self._apply_resistance(self.state["temperature"], temp_change)
@@ -114,6 +116,13 @@ class AutonomicLayer:
         self.state["arousal"] = self._clamp(self.state["arousal"] + arousal_change)
         self._apply_rebound("arousal")
         self._check_warning("arousal")
+
+    def update_temperature(self, activity_level):
+        # Called by et_core with real metabolic data
+        target = activity_level
+        change = (target - self.state["temperature"]) * 0.1
+        change = self._apply_resistance(self.state["temperature"], change)
+        self.state["temperature"] = self._clamp(self.state["temperature"] + change)
 
     def get_state(self):
         return dict(self.state)

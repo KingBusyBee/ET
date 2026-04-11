@@ -34,8 +34,8 @@ class SocialLayer:
 
         self.warning_threshold = 0.75
         self.rebound_factor = 0.15
-        self.drift_rate = 0.003     # connection drifts negative without input
-        self.trust_rate = 0.0002    # trust builds very slowly
+        self.drift_rate = 0.0005    # connection drifts negative without input — slow burn
+        self.trust_rate = 0.0005    # trust builds very slowly
         self.attunement_rate = 0.01 # attunement grows with accurate reading
         self.tick_count = 0
         self.running = False

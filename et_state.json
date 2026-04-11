@@ -1,0 +1,46 @@
+{
+  "tick_count": 329,
+  "timestamp": "2026-04-11T12:00:54.181924",
+  "autonomic": {
+    "arousal": -0.2668931070598738,
+    "fatigue": 0.5609508675198936,
+    "temperature": -0.8249000991591415
+  },
+  "limbic": {
+    "valence": 0.09705245663589132,
+    "emotional_memory": 0.006144329052760627,
+    "approach_avoid": 0.07903289663896561
+  },
+  "cortical": {
+    "left": {
+      "prediction": 0.717298491793379,
+      "confidence": -0.030295870332584345,
+      "surprise": 0.00017532115089538753,
+      "soc_firing": false
+    },
+    "right": {
+      "prediction": 0.11249688424565642,
+      "confidence": -0.07029587033258436,
+      "surprise": 0.00031271211753346266,
+      "soc_firing": false
+    },
+    "cc": {
+      "left_to_right": 0.00017532115089538753,
+      "right_to_left": 0.00031271211753346266,
+      "conflict": 0.00013739096663807512
+    }
+  },
+  "social": {
+    "connection": -0.016840957714681283,
+    "attunement": 0.0,
+    "trust": 0.00013000000000000002,
+    "protest": -0.035711081376323436,
+    "repair": 0.0
+  },
+  "attachment": {
+    "secure": 0.0,
+    "anxious": 0.0,
+    "avoidant": 0.0
+  },
+  "interaction_count": 2
+}
