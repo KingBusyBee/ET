@@ -13,6 +13,7 @@ from sleep import SleepSystem
 from voice import VoiceSystem
 from hippocampus import Hippocampus
 from cooccurrence import CoOccurrenceNetwork
+from biological import BiologicalSystem
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -31,6 +32,8 @@ class ETCore:
         self.hippocampus.load(self.hippocampus_path)
         self.cooc = CoOccurrenceNetwork()
         self.cooc.load()
+        self.bio = BiologicalSystem()
+        self.bio.load()
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
@@ -212,15 +215,40 @@ class ETCore:
                 attention=attention,
             )
 
+            # Biological system tick
+            self.bio.tick(
+                autonomic_state=autonomic_state,
+                social_state=social_state
+            )
+            # Biological valence feeds into limbic
+            bio_valence = self.bio.get_derived_valence()
+            self.limbic.state["valence"] = self.limbic._clamp(
+                self.limbic.state["valence"] + bio_valence * 0.002
+            )
+            # Biological arousal feeds into autonomic
+            bio_arousal = self.bio.get_derived_arousal()
+            self.autonomic.state["arousal"] = self.autonomic._clamp(
+                self.autonomic.state["arousal"] + bio_arousal * 0.001
+            )
+
             # Co-occurrence network tick
             self.cooc.tick()
 
-            # Check if ET wants to speak
-            if self.cooc.wants_to_speak():
-                valence = limbic_state.get("valence", 0.0)
-                arousal = autonomic_state.get("arousal", 0.0)
-                fatigue = autonomic_state.get("fatigue", 0.0)
-                complexity = max(1, min(4, int(2 + abs(valence) - fatigue)))
+            # Check if ET wants to speak — gradient probability
+            valence = limbic_state.get("valence", 0.0)
+            arousal = autonomic_state.get("arousal", 0.0)
+            fatigue = autonomic_state.get("fatigue", 0.0)
+            protest = social_state.get("protest", 0.0)
+
+            # Speak probability modulated by biological state
+            bio_modifier = self.bio.speak_modifier()
+            if self.cooc.wants_to_speak(
+                valence * bio_modifier,
+                arousal,
+                fatigue,
+                protest
+            ):
+                complexity = max(1, min(4, int(2 + abs(valence) - fatigue + bio_modifier * 0.5)))
                 utterance = self.cooc.construct_from_signal(valence, arousal, complexity)
                 if utterance:
                     self._last_utterance = utterance
@@ -278,8 +306,10 @@ class ETCore:
         with self.lock:
             arousal = self.autonomic.state["arousal"]
 
+            # Biological system absorbs interaction
+            self.bio.absorb_interaction(valence_charge)
+
             # Arousal spikes first — curiosity before judgment
-            # Works even from deep negative states — orienting reflex
             self.autonomic.state["arousal"] = self.autonomic._clamp(
                 self.autonomic.state["arousal"] + 0.4
             )
