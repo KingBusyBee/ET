@@ -1,7 +1,7 @@
 {
   "tick_count": 443778,
-  "timestamp": "2026-04-12T08:07:27.294986",
-  "scene_count": 2675,
+  "timestamp": "2026-04-12T08:36:41.945668",
+  "scene_count": 2687,
   "scenes": [
     {
       "id": 0,
@@ -29427,6 +29427,138 @@
       "activation": 0.9476212271043665,
       "reactivations": 49,
       "last_active": 443778
+    },
+    {
+      "id": 2675,
+      "tick": 474195,
+      "context": "CHAPTER 1 Matthew Mantrell leaned forward across the little table in the campus coffee shop and tapped the sheet of rune-covered parchment before him.",
+      "valence": 0.8278516216959093,
+      "arousal": -0.20428305670109695,
+      "attention": 0.0,
+      "activation": 0.8278516216959093,
+      "reactivations": 0,
+      "last_active": 474195
+    },
+    {
+      "id": 2676,
+      "tick": 474195,
+      "context": "He tried to put some of the urgency he felt into his voice.",
+      "valence": 0.9098337867532004,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 0.9098337867532004,
+      "reactivations": 0,
+      "last_active": 474195
+    },
+    {
+      "id": 2677,
+      "tick": 474195,
+      "context": "ET it's morning!",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474195
+    },
+    {
+      "id": 2678,
+      "tick": 474195,
+      "context": "\"I tell you, Paul, this is important!\" Paul just sighed and shook his head, reaching for the last of his coffee.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474195
+    },
+    {
+      "id": 2679,
+      "tick": 474195,
+      "context": "He didn't even glance at the parchment.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474195
+    },
+    {
+      "id": 2680,
+      "tick": 474196,
+      "context": "CHAPTER 1 Matthew Mantrell leaned forward across the little table in the campus coffee shop and tapped the sheet of rune-covered parchment before him.",
+      "valence": 0.990410707201789,
+      "arousal": 0.999961230060203,
+      "attention": 0.0,
+      "activation": 0.990410707201789,
+      "reactivations": 0,
+      "last_active": 474196
+    },
+    {
+      "id": 2681,
+      "tick": 474196,
+      "context": "He tried to put some of the urgency he felt into his voice.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474196
+    },
+    {
+      "id": 2682,
+      "tick": 474197,
+      "context": "CHAPTER 1 Matthew Mantrell leaned forward across the little table in the campus coffee shop and tapped the sheet of rune-covered parchment before him.",
+      "valence": 0.9904091117679333,
+      "arousal": 0.9999621556071465,
+      "attention": 0.0,
+      "activation": 0.9904091117679333,
+      "reactivations": 0,
+      "last_active": 474197
+    },
+    {
+      "id": 2683,
+      "tick": 474197,
+      "context": "He tried to put some of the urgency he felt into his voice.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474197
+    },
+    {
+      "id": 2684,
+      "tick": 474198,
+      "context": "CHAPTER 1 Matthew Mantrell leaned forward across the little table in the campus coffee shop and tapped the sheet of rune-covered parchment before him.",
+      "valence": 0.9904103859981142,
+      "arousal": 0.999961853280799,
+      "attention": 0.0,
+      "activation": 0.9904103859981142,
+      "reactivations": 0,
+      "last_active": 474198
+    },
+    {
+      "id": 2685,
+      "tick": 474198,
+      "context": "He tried to put some of the urgency he felt into his voice.",
+      "valence": 1.0,
+      "arousal": 1.0,
+      "attention": 0.0,
+      "activation": 1.0,
+      "reactivations": 0,
+      "last_active": 474198
+    },
+    {
+      "id": 2686,
+      "tick": 474199,
+      "context": "CHAPTER 1 Matthew Mantrell leaned forward across the little table in the campus coffee shop and tapped the sheet of rune-covered parchment before him.",
+      "valence": 0.9904118460158392,
+      "arousal": 0.9999619660284149,
+      "attention": 0.0,
+      "activation": 0.9904118460158392,
+      "reactivations": 0,
+      "last_active": 474199
     }
   ]
 }

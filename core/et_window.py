@@ -6,6 +6,7 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 from et_core import ETCore
 from story_reader import read_to_et
+from mood import get_mood_descriptor, get_mood_emoji
 
 class ETWindow:
     def __init__(self):
@@ -26,6 +27,17 @@ class ETWindow:
             fg="white"
         )
         self.face_label.pack(pady=(60, 0))
+
+        # Mood word — single descriptor below face
+        self.mood_var = tk.StringVar(value="")
+        self.mood_label = tk.Label(
+            self.root,
+            textvariable=self.mood_var,
+            font=("Helvetica", 11, "italic"),
+            bg="#0a0a0a",
+            fg="#333333"
+        )
+        self.mood_label.pack(pady=(2, 0))
 
         # Attention eyes — shows when ET is paying attention
         self.eyes_var = tk.StringVar(value=" ")
@@ -207,16 +219,29 @@ class ETWindow:
         if not self.running:
             return
         try:
-            # Sleep overrides face
+            a = self.et.autonomic.state
+            l = self.et.limbic.state
+            s = self.et.social.state
+
             if self.et.sleep_system.sleeping:
                 depth = self.et.sleep_system.sleep_depth
-                if depth > 0.5:
-                    face = "😴"
-                else:
-                    face = "😪"
+                mood = "exhausted" if depth > 0.5 else "drowsy"
             else:
-                face = self.et._get_face()
+                sig_mood = get_mood_descriptor(
+                    valence=l.get("valence", 0.0),
+                    arousal=a.get("arousal", 0.0),
+                    fatigue=a.get("fatigue", 0.0),
+                    connection=s.get("connection", 0.0),
+                    protest=s.get("protest", 0.0),
+                )
+                bio_mood = self.et.bio.mood_descriptor()
+                mood = bio_mood if bio_mood in [
+                    "depleted", "foggy", "anxious", "glowing"
+                ] else sig_mood
+
+            face = get_mood_emoji(mood)
             self.face_var.set(face)
+            self.mood_var.set(mood)
 
             eyes = self._get_attention_eyes(
                 self.et.cortical,

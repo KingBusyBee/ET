@@ -242,11 +242,12 @@ class ETCore:
 
             # Speak probability modulated by biological state
             bio_modifier = self.bio.speak_modifier()
+            speak_valence = min(1.0, max(-1.0, valence * bio_modifier))
             if self.cooc.wants_to_speak(
-                valence * bio_modifier,
-                arousal,
-                fatigue,
-                protest
+                valence=speak_valence,
+                arousal=arousal,
+                fatigue=fatigue,
+                protest=protest
             ):
                 complexity = max(1, min(4, int(2 + abs(valence) - fatigue + bio_modifier * 0.5)))
                 utterance = self.cooc.construct_from_signal(valence, arousal, complexity)
@@ -497,8 +498,12 @@ class ETCore:
             print("\nShutting down...")
             self.save_state()
             self.memory.save()
+            self.word_store.save()
+            self.hippocampus.save(self.hippocampus_path)
+            self.cooc.save()
+            self.bio.save()
             self.running = False
-            print("ET stopped. State and memory saved.")
+            print("ET stopped. All systems saved.")
 
 if __name__ == "__main__":
     et = ETCore()
