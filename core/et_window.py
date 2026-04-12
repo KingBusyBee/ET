@@ -143,7 +143,9 @@ class ETWindow:
 
         # Start reading Swimmer to ET — one sentence every 12 seconds
         # ET doesn't understand yet — words land with current signal state
-        self.story_thread = read_to_et(self.et, interval=8.0, repeat=True, verbose=True)
+        # Story reading paused — ET focusing on caregiver interaction
+        # # Story reading paused — ET focusing on caregiver interaction
+        # self.story_thread = read_to_et(self.et, interval=8.0, repeat=True, verbose=True)
 
         # Update display on main thread
         self.root.after(100, self.update_display)
@@ -180,13 +182,32 @@ class ETWindow:
         def send():
             self.et.interaction(charge)
             self.et.social.ticks_since_contact = 0
-            # Your words go into ET's language systems
+            # Mirror system observes your style
+            self.et.mirror.observe(text)
+            # Your words land with boost — primary caregiver effect
+            boost = self.et.mirror.get_learning_boost()
             with self.et.lock:
                 valence = self.et.limbic.state.get("valence", 0.0)
                 arousal = self.et.autonomic.state.get("arousal", 0.0)
                 attention = self.et.cortical.get_attention()
-                self.et.word_store.hear(text, valence, arousal, self.et.tick_count)
+                # Scene memory
+                self.et.word_store.hear(
+                    text, valence, arousal, self.et.tick_count, attention=attention
+                )
+                # Co-occurrence — boosted for user input
+                # Temporarily raise learning rate for your words
+                original_lr = self.et.cooc.lr
+                self.et.cooc.lr = original_lr * boost
                 self.et.cooc.learn(text, valence, arousal, attention)
+                self.et.cooc.lr = original_lr
+                # Hippocampus — your words encoded with scene text
+                signal_state = {
+                    "valence": valence, "arousal": arousal,
+                    "attention": attention,
+                    "connection": self.et.social.state.get("connection", 0.0),
+                }
+                self.et._last_scene_text = text
+                self.et.hippocampus.encode(signal_state, scene_text=text)
 
         threading.Thread(target=send, daemon=True).start()
 
@@ -296,6 +317,7 @@ class ETWindow:
         self.et.hippocampus.save(self.et.hippocampus_path)
         self.et.cooc.save()
         self.et.bio.save()
+        self.et.mirror.save()
         try:
             self.root.destroy()
         except:

@@ -14,6 +14,7 @@ from voice import VoiceSystem
 from hippocampus import Hippocampus
 from cooccurrence import CoOccurrenceNetwork
 from biological import BiologicalSystem
+from mirror import MirrorSystem
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -34,6 +35,7 @@ class ETCore:
         self.cooc.load()
         self.bio = BiologicalSystem()
         self.bio.load()
+        self.mirror = MirrorSystem()
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
@@ -249,7 +251,8 @@ class ETCore:
                 fatigue=fatigue,
                 protest=protest
             ):
-                complexity = max(1, min(4, int(2 + abs(valence) - fatigue + bio_modifier * 0.5)))
+                base_complexity = max(1, min(4, int(2 + abs(valence) - fatigue + bio_modifier * 0.5)))
+                complexity = self.mirror.get_complexity_target(base_complexity)
                 utterance = self.cooc.construct_from_signal(valence, arousal, complexity)
                 if utterance:
                     self._last_utterance = utterance
@@ -502,6 +505,7 @@ class ETCore:
             self.hippocampus.save(self.hippocampus_path)
             self.cooc.save()
             self.bio.save()
+            self.mirror.save()
             self.running = False
             print("ET stopped. All systems saved.")
 
