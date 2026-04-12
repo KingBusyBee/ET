@@ -45,15 +45,17 @@ except Exception as e:
     print(f"Memory error: {e}")
 
 try:
-    with open("/home/emergent-thought/ET/et_words.json") as f:
+    with open("/home/emergent-thought/ET/et_scenes.json") as f:
         wd = json.load(f)
     words = wd["words"]
     print(f"\n[Vocabulary — {len(words)} words known]")
 
-    sorted_pos = sorted(words.items(), key=lambda x: x[1]["valence_avg"], reverse=True)[:8]
-    sorted_neg = sorted(words.items(), key=lambda x: x[1]["valence_avg"])[:5]
-    sorted_str = sorted(words.items(), key=lambda x: x[1]["activation"], reverse=True)[:8]
-    sorted_cnt = sorted(words.items(), key=lambda x: x[1]["count"], reverse=True)[:8]
+    scenes = wd.get("scenes", [])
+    if not scenes:
+        print("  No scenes yet.")
+        raise Exception("no scenes")
+    sorted_str = sorted(scenes, key=lambda x: x["activation"], reverse=True)[:5]
+    sorted_cnt = sorted(scenes, key=lambda x: x["reactivations"], reverse=True)[:5]
 
     print(f"\n  Most heard:")
     for w, d in sorted_cnt:
@@ -85,7 +87,7 @@ except Exception as e:
     print(f"Word error: {e}")
 
 try:
-    with open("/home/emergent-thought/ET/et_words.json") as f:
+    with open("/home/emergent-thought/ET/et_scenes.json") as f:
         wd = json.load(f)
     if wd.get("words"):
         vh = [(w, d) for w, d in wd["words"].items() if d["count"] >= 2]

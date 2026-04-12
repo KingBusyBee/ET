@@ -1,45 +1,45 @@
 {
-  "tick_count": 30836,
-  "timestamp": "2026-04-11T17:49:50.985455",
+  "tick_count": 167735,
+  "timestamp": "2026-04-11T22:09:25.630102",
   "autonomic": {
-    "arousal": -0.032141598754802096,
-    "fatigue": 0.22503685340179824,
-    "temperature": -0.6181396231701124
+    "arousal": -0.1159361151345061,
+    "fatigue": 0.09250355819251001,
+    "temperature": -0.49749587869355194
   },
   "limbic": {
-    "valence": 0.999998752807531,
-    "emotional_memory": 0.9999964051989285,
-    "approach_avoid": 0.999998332989366
+    "valence": 1.0,
+    "emotional_memory": 0.9999999999998879,
+    "approach_avoid": 0.9999999999999645
   },
   "cortical": {
     "left": {
       "prediction": 1.0,
-      "confidence": 0.5986583148306652,
-      "surprise": 0.0004990693721251156,
+      "confidence": 1.0,
+      "surprise": 0.6090850045297916,
       "soc_firing": false
     },
     "right": {
-      "prediction": 0.0925572943025359,
-      "confidence": -0.17469873955664825,
-      "surprise": 0.0011828458468172633,
+      "prediction": 1.0,
+      "confidence": 1.0,
+      "surprise": 0.06820853787881347,
       "soc_firing": false
     },
     "cc": {
-      "left_to_right": 0.0004990693721251156,
-      "right_to_left": 0.0011828458468172633,
-      "conflict": 0.0006837764746921477
+      "left_to_right": 0.5561807763331335,
+      "right_to_left": 0.06820853787881347,
+      "conflict": 0.48797223845432
     }
   },
   "social": {
     "connection": 1.0,
-    "attunement": 0.01720634684743057,
-    "trust": 0.1402340000000016,
-    "protest": -0.004860944266892839,
+    "attunement": -0.9778481493541199,
+    "trust": 0.16237400000002217,
+    "protest": -0.005400524567239468,
     "repair": 0.0
   },
   "attachment": {
     "secure": 0.0,
-    "anxious": 0.0064464354778602665,
+    "anxious": 9.170848129534762e-05,
     "avoidant": 0.0
   },
   "interaction_count": 50

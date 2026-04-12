@@ -48,11 +48,23 @@ class LimbicLayer:
         if autonomic_state:
             self.receive_autonomic(autonomic_state)
 
-        # Valence drifts back toward emotional memory, not zero
-        # This means past experience shapes what "neutral" feels like
+        # Valence drifts back toward emotional memory
+        # But emotional memory itself drifts toward zero over time
+        # preventing permanent ceiling lock
         gap_to_memory = self.state["emotional_memory"] - self.state["valence"]
         self.state["valence"] = self._clamp(
             self.state["valence"] + gap_to_memory * self.drift_rate * 10
+        )
+        # Ceiling resistance — valence near limits gets pulled back faster
+        if abs(self.state["valence"]) > 0.85:
+            pull = (abs(self.state["valence"]) - 0.85) * 0.05
+            direction = -1 if self.state["valence"] > 0 else 1
+            self.state["valence"] = self._clamp(
+                self.state["valence"] + direction * pull
+            )
+        # Emotional memory slowly drifts toward zero — prevents baseline lock
+        self.state["emotional_memory"] = self._clamp(
+            self.state["emotional_memory"] * 0.9999
         )
 
         # Emotional memory accumulates very slowly from valence
