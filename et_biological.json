@@ -1,13 +1,13 @@
 {
-  "tick_count": 4077,
-  "timestamp": "2026-04-12T08:55:03.164968",
+  "tick_count": 15262,
+  "timestamp": "2026-04-12T09:28:07.648868",
   "subsystems": {
     "cortisol": 0.0,
     "oxytocin": 1.0,
-    "dopamine": 0.4824904999283261,
-    "inflammation": 0.16023511362854734,
-    "gut_serotonin": 0.866982780514673,
-    "effort": 0.22443203877794937
+    "dopamine": 0.4524411235592057,
+    "inflammation": 0.19427116733924038,
+    "gut_serotonin": 0.9466906632506185,
+    "effort": 0.2535582209372292
   },
   "online": {
     "cortisol": true,

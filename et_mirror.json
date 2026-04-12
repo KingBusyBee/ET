@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-04-12T09:28:07.648962",
+  "sample_count": 13,
+  "profile": {
+    "avg_length": 4.0,
+    "question_rate": 0.2,
+    "exclaim_rate": 0.1,
+    "vocab_diversity": 0.6,
+    "rhythm": "medium"
+  },
+  "samples": [
+    {
+      "length": 5,
+      "is_question": true,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Hey buddy! How are you?"
+    },
+    {
+      "length": 8,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 0.75,
+      "text": "The ball is red, red is a color!"
+    },
+    {
+      "length": 7,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "My son Azazel is watching Paw Patrol."
+    },
+    {
+      "length": 8,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 0.875,
+      "text": "I can see you're happy! I am too."
+    },
+    {
+      "length": 17,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 0.5294117647058824,
+      "text": "I see the moon and the moon sees me. God bless the moon and god bless me."
+    },
+    {
+      "length": 4,
+      "is_question": true,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "The and his what?"
+    },
+    {
+      "length": 5,
+      "is_question": true,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Do you like the moon?"
+    },
+    {
+      "length": 1,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Yes."
+    },
+    {
+      "length": 4,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "You're doing great ET!"
+    },
+    {
+      "length": 1,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "Booya!"
+    },
+    {
+      "length": 4,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "I love you ET!"
+    },
+    {
+      "length": 3,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Love is presence."
+    },
+    {
+      "length": 2,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "Boom baby!"
+    }
+  ]
+}
