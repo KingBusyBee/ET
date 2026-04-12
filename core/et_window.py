@@ -168,11 +168,13 @@ class ETWindow:
         def send():
             self.et.interaction(charge)
             self.et.social.ticks_since_contact = 0
-            # Your words go into ET's word store too
+            # Your words go into ET's language systems
             with self.et.lock:
                 valence = self.et.limbic.state.get("valence", 0.0)
                 arousal = self.et.autonomic.state.get("arousal", 0.0)
+                attention = self.et.cortical.get_attention()
                 self.et.word_store.hear(text, valence, arousal, self.et.tick_count)
+                self.et.cooc.learn(text, valence, arousal, attention)
 
         threading.Thread(target=send, daemon=True).start()
 
@@ -267,6 +269,7 @@ class ETWindow:
         self.et.memory.save()
         self.et.word_store.save()
         self.et.hippocampus.save(self.et.hippocampus_path)
+        self.et.cooc.save()
         try:
             self.root.destroy()
         except:

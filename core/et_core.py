@@ -12,6 +12,7 @@ from word_store import WordStore
 from sleep import SleepSystem
 from voice import VoiceSystem
 from hippocampus import Hippocampus
+from cooccurrence import CoOccurrenceNetwork
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "../et_state.json")
 
@@ -28,11 +29,14 @@ class ETCore:
         self.hippocampus = Hippocampus(context_size=4, hidden_size=8)
         self.hippocampus_path = os.path.join(os.path.dirname(__file__), "../et_hippocampus.json")
         self.hippocampus.load(self.hippocampus_path)
+        self.cooc = CoOccurrenceNetwork()
+        self.cooc.load()
         self.tick_count = 0
         self.running = False
         self.lock = threading.Lock()
         self._pending_interaction = None
         self._last_utterance = None
+        self._last_scene_text = ""
         self.presence = "ambient"  # "absent" | "ambient" | "active"
         self.presence_ticks = 0    # ticks since last active interaction
         self.load_state()
@@ -208,6 +212,19 @@ class ETCore:
                 attention=attention,
             )
 
+            # Co-occurrence network tick
+            self.cooc.tick()
+
+            # Check if ET wants to speak
+            if self.cooc.wants_to_speak():
+                valence = limbic_state.get("valence", 0.0)
+                arousal = autonomic_state.get("arousal", 0.0)
+                fatigue = autonomic_state.get("fatigue", 0.0)
+                complexity = max(1, min(4, int(2 + abs(valence) - fatigue)))
+                utterance = self.cooc.construct_from_signal(valence, arousal, complexity)
+                if utterance:
+                    self._last_utterance = utterance
+
             # Word store decay tick — pass current signals for reactivation
             self.word_store.tick(
                 current_signals=current_signals,
@@ -215,10 +232,13 @@ class ETCore:
             )
 
             # Hippocampus — rolling context, RNN forward pass, Hebbian learning
+            # scene_text comes from story reader directly
+            # et_core tick encodes signal state only
             surprise, prediction = self.hippocampus.encode(
                 current_signals,
-                scene_text=""
+                scene_text=getattr(self, "_last_scene_text", "")
             )
+            self._last_scene_text = ""  # clear after use
             # Hippocampal surprise feeds back into cortical
             if surprise > 0.3:
                 self.cortical.left["surprise"] = self.cortical._clamp(
