@@ -42,13 +42,9 @@ def read_to_et(et_core, interval=12.0, repeat=True, verbose=True):
         while True:
             cycle += 1
 
-            # Always start with Swimmer as warmup
-            if verbose:
-                print(f"\n  📖 ET warmup (cycle {cycle})...")
-
-            for sentence in swimmer_sentences:
-                _wait_for_awake(et_core, verbose)
-                _deliver(et_core, sentence, interval, verbose)
+            # Swimmer warmup removed — ET has heard it enough
+            # Her Majesty's Wizard continues as primary reading
+            pass
 
             # Then read from Wizard
             if wizard_sentences:
