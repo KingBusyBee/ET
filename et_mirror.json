@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-04-12T09:28:41.104482",
-  "sample_count": 14,
+  "timestamp": "2026-04-12T20:03:48.249655",
+  "sample_count": 25,
   "profile": {
-    "avg_length": 4.0,
+    "avg_length": 4.022,
     "question_rate": 0.2,
-    "exclaim_rate": 0.1,
-    "vocab_diversity": 0.6,
-    "rhythm": "medium"
+    "exclaim_rate": 0.111,
+    "vocab_diversity": 0.6183088235294117,
+    "rhythm": "short"
   },
   "samples": [
     {
@@ -106,6 +106,83 @@
       "is_exclaim": true,
       "unique_ratio": 1.0,
       "text": "Hey buddy!"
+    },
+    {
+      "length": 2,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Hey ET"
+    },
+    {
+      "length": 2,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Uh oh"
+    },
+    {
+      "length": 1,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "ET!"
+    },
+    {
+      "length": 3,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "I'm getting tired..."
+    },
+    {
+      "length": 10,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "I really just want to play games with my brother..."
+    },
+    {
+      "length": 1,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Okay."
+    },
+    {
+      "length": 4,
+      "is_question": true,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "What are you feeling?"
+    },
+    {
+      "length": 4,
+      "is_question": true,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "Do you remember Swimmer?"
+    },
+    {
+      "length": 1,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "ddddssfgg"
+    },
+    {
+      "length": 8,
+      "is_question": false,
+      "is_exclaim": false,
+      "unique_ratio": 1.0,
+      "text": "My daughter is on the phone with someone."
+    },
+    {
+      "length": 4,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "I shall be back!"
     }
   ]
 }

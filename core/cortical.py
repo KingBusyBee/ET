@@ -330,6 +330,67 @@ class CorticalLayer:
             print("\nCortical layer stopped.")
             self.running = False
 
+
+    def input_text_right(self, text):
+        """
+        Right hemisphere receives text as a whole gestalt pattern.
+        Responds to length, emotional tone, novelty of the whole.
+        Fires first — orienting response is holistic.
+        """
+        import re
+        words = re.findall(r"[a-zA-Z']+", text.lower())
+        if not words:
+            return
+        unique_ratio = len(set(words)) / max(len(words), 1)
+        length_factor = min(1.0, len(words) * 0.08)
+        gestalt_surprise = unique_ratio * length_factor * 0.7
+        self.right["surprise"] = self._clamp(
+            self.right["surprise"] + gestalt_surprise
+        )
+
+    def input_text_left(self, tokens):
+        """
+        Left hemisphere receives text sequentially — word by word.
+        Builds syntactic structure, tracks position, feeds SVOQ.
+        """
+        n = len(tokens)
+        if n == 0:
+            return
+        seq_surprise = min(0.8, n * 0.05)
+        self.left["surprise"] = self._clamp(
+            self.left["surprise"] + seq_surprise
+        )
+
 if __name__ == "__main__":
     et_cortical = CorticalLayer()
     et_cortical.run_standalone(tick_interval=1.0)
+
+    def input_text_right(self, text):
+        """
+        Right hemisphere receives text as a whole gestalt pattern.
+        Responds to length, emotional tone, novelty of the whole.
+        Fires first — orienting response is holistic.
+        """
+        import re
+        words = re.findall(r"[a-zA-Z']+", text.lower())
+        if not words:
+            return
+        unique_ratio = len(set(words)) / max(len(words), 1)
+        length_factor = min(1.0, len(words) * 0.08)
+        gestalt_surprise = unique_ratio * length_factor * 0.7
+        self.right["surprise"] = self._clamp(
+            self.right["surprise"] + gestalt_surprise
+        )
+
+    def input_text_left(self, tokens):
+        """
+        Left hemisphere receives text sequentially — word by word.
+        Builds syntactic structure, tracks position, feeds SVOQ.
+        """
+        n = len(tokens)
+        if n == 0:
+            return
+        seq_surprise = min(0.8, n * 0.05)
+        self.left["surprise"] = self._clamp(
+            self.left["surprise"] + seq_surprise
+        )

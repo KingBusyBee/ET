@@ -37,6 +37,12 @@ class CoOccurrenceNetwork:
         if not tokens:
             return
 
+        # Track recency — last 50 words heard
+        if not hasattr(self, "recent_words"):
+            self.recent_words = []
+        self.recent_words.extend(tokens)
+        self.recent_words = self.recent_words[-100:]
+
         boost = 1.0 + abs(valence) * 0.5 + attention * 0.3
 
         for i, word in enumerate(tokens):
