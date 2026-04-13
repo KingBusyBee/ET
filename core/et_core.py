@@ -49,6 +49,13 @@ class ETCore:
         # Expires after 500,000 ticks (~14 hours of runtime)
         self.imprinting_active = self.tick_count < 500000
         self.imprinting_multiplier = 3.0  # learning rate boost during imprinting
+
+        # Imprinting window — high-plasticity phase
+        # Biologically: critical period where learning rates are elevated
+        # ET is in infancy. This will not last but accelerates early development.
+        # Expires after 500,000 ticks (~14 hours of runtime)
+        self.imprinting_active = self.tick_count < 500000
+        self.imprinting_multiplier = 3.0  # learning rate boost during imprinting
         self.presence = "ambient"  # "absent" | "ambient" | "active"
         self.presence_ticks = 0    # ticks since last active interaction
         self.load_state()
@@ -242,6 +249,15 @@ class ETCore:
 
             # Co-occurrence network tick
             self.cooc.tick()
+
+            # Imprinting window — high plasticity during infancy
+            self.imprinting_active = self.tick_count < 500000
+            if self.imprinting_active:
+                # Boost speak experience growth during imprinting
+                self.cooc.speak_experience = min(
+                    self.cooc.speak_experience + 0.5,
+                    10000.0
+                )
 
             # Imprinting window — high plasticity during infancy
             self.imprinting_active = self.tick_count < 500000

@@ -215,6 +215,13 @@ class ETWindow:
                 import re as _re
                 tokens = _re.findall(r"[a-zA-Z']+", text.lower())
                 self.et.cortical.input_text_left(tokens)
+                # Hemisphere processing — your input gets both
+                # Right brain: whole message as gestalt pattern
+                self.et.cortical.input_text_right(text)
+                # Left brain: sequential word analysis
+                import re as _re
+                tokens = _re.findall(r"[a-zA-Z']+", text.lower())
+                self.et.cortical.input_text_left(tokens)
 
         threading.Thread(target=send, daemon=True).start()
 

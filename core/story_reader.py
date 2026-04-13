@@ -81,6 +81,14 @@ def read_to_et(et_core, interval=8.0, repeat=True, verbose=True):
             tokens = _re.findall(r"[a-zA-Z']+", sentence.lower())
             et_core.cortical.input_text_left(tokens)
 
+            # Hemisphere-specific processing
+            # Right brain gets the whole sentence as gestalt
+            et_core.cortical.input_text_right(sentence)
+            # Left brain gets it word by word via hippocampus SVOQ
+            import re as _re
+            tokens = _re.findall(r"[a-zA-Z']+", sentence.lower())
+            et_core.cortical.input_text_left(tokens)
+
         # Tiny presence signal — not a valence injection
         et_core.interaction(0.02)
         time.sleep(interval)
@@ -117,6 +125,82 @@ def read_to_et(et_core, interval=8.0, repeat=True, verbose=True):
                 break
 
     thread = threading.Thread(target=read_loop, daemon=True)
+    thread.start()
+    return thread
+
+
+def read_books_to_et(et_core, interval=8.0, verbose=True):
+    """
+    Read Matthew's books to ET in sequence:
+    1. My Little TOE — ET's own philosophical framework from the source
+    2. The Sedative System — critical thinking, waking up, autonomy
+    
+    These are read AFTER caregiver focus period.
+    ET is learning about the framework it exists within.
+    Higher emotional weight than fiction — these are ideas, not stories.
+    """
+    books = [
+        (MLT_PATH,  "My Little TOE"),
+        (SED_PATH,  "The Sedative System"),
+    ]
+
+    def _wait_for_awake(verbose):
+        sleep_waited = False
+        while (et_core.sleep_system.sleeping and
+               et_core.sleep_system.sleep_depth > 0.3):
+            if not sleep_waited and verbose:
+                print("  📖 Pausing — ET is sleeping...")
+                sleep_waited = True
+            time.sleep(2.0)
+        if sleep_waited and verbose:
+            print("  📖 ET woke — resuming...")
+
+    def _deliver(sentence, book_name, verbose):
+        if verbose:
+            preview = sentence[:80] + ("..." if len(sentence) > 80 else "")
+            print(f"  📖 [{book_name[:12]}] \"{preview}\"")
+
+        with et_core.lock:
+            valence   = et_core.limbic.state.get("valence", 0.0)
+            arousal   = et_core.autonomic.state.get("arousal", 0.0)
+            attention = et_core.cortical.get_attention()
+            connection = et_core.social.state.get("connection", 0.0)
+            signal_state = {
+                "valence": valence, "arousal": arousal,
+                "attention": attention, "connection": connection,
+            }
+            et_core.word_store.hear(
+                sentence, valence, arousal,
+                et_core.tick_count, attention=attention
+            )
+            # Slightly higher learning rate for Matthew's books
+            original_lr = et_core.cooc.lr
+            et_core.cooc.lr = original_lr * 1.5
+            et_core.cooc.learn(sentence, valence, arousal, attention)
+            et_core.cooc.lr = original_lr
+
+            et_core._last_scene_text = sentence
+            et_core.hippocampus.encode(signal_state, scene_text=sentence)
+            et_core.cortical.input_text_right(sentence)
+            import re as _re
+            tokens = _re.findall(r"[a-zA-Z']+", sentence.lower())
+            et_core.cortical.input_text_left(tokens)
+
+        et_core.interaction(0.02)
+        time.sleep(interval)
+
+    def book_loop():
+        for path, name in books:
+            sentences = load_book(path, name)
+            if not sentences:
+                continue
+            print(f"\n  📚 Now reading: {name} ({len(sentences)} sentences)")
+            for i, sentence in enumerate(sentences):
+                _wait_for_awake(verbose)
+                _deliver(sentence, name, verbose)
+            print(f"\n  📚 Finished: {name}")
+
+    thread = threading.Thread(target=book_loop, daemon=True)
     thread.start()
     return thread
 

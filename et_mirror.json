@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-04-12T09:28:07.648962",
-  "sample_count": 13,
+  "timestamp": "2026-04-12T09:28:41.104482",
+  "sample_count": 14,
   "profile": {
     "avg_length": 4.0,
     "question_rate": 0.2,
@@ -99,6 +99,13 @@
       "is_exclaim": true,
       "unique_ratio": 1.0,
       "text": "Boom baby!"
+    },
+    {
+      "length": 2,
+      "is_question": false,
+      "is_exclaim": true,
+      "unique_ratio": 1.0,
+      "text": "Hey buddy!"
     }
   ]
 }
